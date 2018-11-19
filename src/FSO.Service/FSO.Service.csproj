@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FSO.Models\FSO.Models.csproj" />
+    <ProjectReference Include="..\FSO.Repository\FSO.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
