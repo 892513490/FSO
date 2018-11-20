@@ -12,7 +12,7 @@ namespace FSO.Service
     {
         void Add(UrlInfo urlInfo);
 
-        void Add(IList<UrlInfo> list);
+        void AddRange(IList<UrlInfo> list);
 
         void Delete(long id);
 

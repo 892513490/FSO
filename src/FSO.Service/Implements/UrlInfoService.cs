@@ -21,7 +21,7 @@ namespace FSO.Service.Implements
             _repository.Add(urlInfo);
         }
 
-        public void Add(IList<UrlInfo> list)
+        public void AddRange(IList<UrlInfo> list)
         {
             _repository.AddRange(list);
         }

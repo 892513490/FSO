@@ -20,7 +20,7 @@ namespace FSO.Api.Controllers
             _service = service;
         }
 
-        [HttpGet("GetUrlInfos")]
+        [HttpGet]
         public IList<UrlInfo> GetUserInfos()
         {
             return _service.GetList();
@@ -33,10 +33,10 @@ namespace FSO.Api.Controllers
             return Ok();
         }
 
-        [HttpPost("Add")]
-        public IActionResult AddRang(IList<UrlInfo> urlInfos)
+        [HttpPost("AddRange")]
+        public IActionResult AddRange(IList<UrlInfo> urlInfos)
         {
-            _service.Add(urlInfos);
+            _service.AddRange(urlInfos);
             return Ok();
         }
 
@@ -53,6 +53,7 @@ namespace FSO.Api.Controllers
             return _service.Get(id);
         }
 
+        [HttpPost("Update")]
         public IActionResult Update(UrlInfo urlInfo)
         {
             _service.Update(urlInfo);

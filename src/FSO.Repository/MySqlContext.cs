@@ -9,10 +9,6 @@ namespace FSO.Repository
     {
         public MySqlContext(DbContextOptions<MySqlContext> options) : base(options) { }
 
-        public DbSet<UserInfo> UserInfos { get; set; }
-        
-        public DbSet<UrlInfo> UrlInfos { get; set; }
-
         //重写OnConfiguring方法
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
