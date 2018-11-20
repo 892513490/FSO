@@ -8,6 +8,8 @@ namespace FSO.Repository
     public class MySqlContext : DbContext
     {
         public MySqlContext(DbContextOptions<MySqlContext> options) : base(options) { }
+        
+        public DbSet<UrlInfo> UrlInfos { get; set; }
 
         //重写OnConfiguring方法
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
