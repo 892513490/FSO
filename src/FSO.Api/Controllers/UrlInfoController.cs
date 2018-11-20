@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FSO.Api.Controllers
 {
+    /// <summary>
+    /// 网址收藏
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class UrlInfoController : ControllerBase
@@ -20,12 +23,21 @@ namespace FSO.Api.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// 收藏列表
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IList<UrlInfo> GetUserInfos()
+        public IList<UrlInfo> List()
         {
             return _service.GetList();
         }
 
+        /// <summary>
+        /// 添加收藏
+        /// </summary>
+        /// <param name="urlInfo"></param>
+        /// <returns></returns>
         [HttpPost("Add")]
         public IActionResult Add(UrlInfo urlInfo)
         {
@@ -33,6 +45,11 @@ namespace FSO.Api.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// 批量收藏
+        /// </summary>
+        /// <param name="urlInfos"></param>
+        /// <returns></returns>
         [HttpPost("AddRange")]
         public IActionResult AddRange(IList<UrlInfo> urlInfos)
         {
@@ -40,6 +57,11 @@ namespace FSO.Api.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// 删除收藏
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("Delete/{id}")]
         public IActionResult Delete(long id)
         {
@@ -47,12 +69,22 @@ namespace FSO.Api.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// 获取收藏详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("Get/{id}")]
         public UrlInfo Get(long id)
         {
             return _service.Get(id);
         }
 
+        /// <summary>
+        /// 更新收藏
+        /// </summary>
+        /// <param name="urlInfo"></param>
+        /// <returns></returns>
         [HttpPost("Update")]
         public IActionResult Update(UrlInfo urlInfo)
         {

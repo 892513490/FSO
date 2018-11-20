@@ -4,5 +4,51 @@
         <name>FSO.Api</name>
     </assembly>
     <members>
+        <member name="T:FSO.Api.Controllers.UrlInfoController">
+            <summary>
+            网址收藏
+            </summary>
+        </member>
+        <member name="M:FSO.Api.Controllers.UrlInfoController.List">
+            <summary>
+            收藏列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.UrlInfoController.Add(FSO.Models.UrlInfo)">
+            <summary>
+            添加收藏
+            </summary>
+            <param name="urlInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.UrlInfoController.AddRange(System.Collections.Generic.IList{FSO.Models.UrlInfo})">
+            <summary>
+            批量收藏
+            </summary>
+            <param name="urlInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.UrlInfoController.Delete(System.Int64)">
+            <summary>
+            删除收藏
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.UrlInfoController.Get(System.Int64)">
+            <summary>
+            获取收藏详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.UrlInfoController.Update(FSO.Models.UrlInfo)">
+            <summary>
+            更新收藏
+            </summary>
+            <param name="urlInfo"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
