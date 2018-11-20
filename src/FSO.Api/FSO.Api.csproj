@@ -25,4 +25,10 @@
     <ProjectReference Include="..\FSO.Service\FSO.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="FSO.Api.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
