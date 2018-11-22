@@ -6,7 +6,8 @@
     body {
         margin: 0;
         padding: 0;
-        margin-top: 50px;
+        padding: 0;
+        padding: 0;
     }
 
     .body-content {
@@ -14,64 +15,79 @@
         padding-right: 0;
     }
 
-    .carousel-inner .item img {
+    .container {
+        max-width:100%;
+    }
+
+    #app {
         width: 100%;
     }
 
     marquee {
-        width: 100%;
-        height: 30px;
-        position: fixed;
-        top: 55px;
-        z-index: 1;
-        color: #FFF;
+        position:fixed;
+        color:#ffffff;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    ul img{
+        width:100%;
     }
 </style>
 
-<marquee>系统消息：友情提示,横屏模式观赏效果更好哦！如果你喜欢的话，请记住我们的网址&nbsp;http://www.fsonline.vip</marquee>
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <!--<ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>-->
-    <div class="carousel-inner" role="listbox">
-        @for (var i = 1; i <= 42; i++)
-        {
-            if (i == 1)
-            {
-                <div class="item active">
-                    <img src="/upload/images/@(i).jpeg" alt="" class="img-responsive" />
-                    <div class="carousel-caption" role="option">
-                        <p>
-                            <!--Learn how to build ASP.NET apps that can run anywhere.-->
-                        </p>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="item">
-                    <img src="/upload/images/@(i).jpeg" alt="" class="img-responsive" />
-                    <div class="carousel-caption" role="option">
-                        <p>
-                            <!--Learn how to build ASP.NET apps that can run anywhere.-->
-                        </p>
-                    </div>
-                </div>
-            }
+<marquee>系统消息：友情提示,横屏模式观赏效果更好哦！如果你喜欢的话，请记住我们的网址&nbsp;https://www.fsonline.vip</marquee>
+<div id="app">
+    <b-carousel id="carousel1"
+        style="text-shadow: 1px 1px 2px #333;"
+        controls
+        indicators
+        background="#ababab"
+        :interval="6000"
+        img-width="1024"
+        img-height="480"
+        v-model="slide"
+        @@sliding-start="onSlideStart"
+        @@sliding-end="onSlideEnd">
 
-        }
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+        <ul>
+            <li v-for="item in imgs">
+                <b-carousel-slide :img-src="item"></b-carousel-slide>
+            </li>
+        </ul>
+    </b-carousel>
 </div>
+
+<script>
+    window.onload = function () {
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    slide: 0,
+                    sliding: null,
+                    imgs: []
+                }
+            },
+            created() {
+                for (var i = 1; i < 42; i++) {
+                    this.imgs.push("/upload/images/" + i.toString() + ".jpeg");
+                }
+            },
+            methods: {
+                onSlideStart(slide) {
+                    this.sliding = true
+                },
+                onSlideEnd(slide) {
+                    this.sliding = false
+                }
+            }
+        });
+    }
+
+</script>
 
 <!--<div class="row">
     <div class="col-md-3">

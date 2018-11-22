@@ -6,51 +6,58 @@
     <title>@ViewData["Title"] - 友情在线</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-v4.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-vue.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap-v4.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap-vue.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+    <style>
+        .navbar {
+            background-color: #563d7c;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">友情在线</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
-                    <li style="display:none;"><a asp-area="" asp-controller="Home" asp-action="About">关于</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">联系方式</a></li>
+    <div id="__layout">
+        <nav class="navbar navbar-dark bd-navbar navbar-light sticky-top navbar-expand-md">
+            <button type="button" aria-label="Toggle navigation" aria-controls="bd-main-nav" aria-expanded="false" class="navbar-toggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">友情在线</a>
+            <div id="bd-main-nav" class="justify-content-between navbar-collapse collapse" style="display: none;float:right;">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
+                    <li class="nav-item"><a style="display:none;" class="nav-link" asp-area="" asp-controller="Home" asp-action="About">关于</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">联系方式</a></li>
                 </ul>
             </div>
+        </nav>
+
+        <partial name="_CookieConsentPartial" />
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2018 - 友情在线</p>
+            </footer>
         </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - 友情在线</p>
-        </footer>
     </div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/vue/vue.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/polyfill.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap-vue.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -60,15 +67,51 @@
                 crossorigin="anonymous"
                 integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
         </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+        <script src="https://cdn.bootcss.com/vue/2.5.17/vue.min.js"
+                asp-fallback-src="~/lib/vue/vue.min.js"
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/polyfill.min.js"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txb">
+        </script>
+        <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap-vue.js"
+                asp-fallback-test="~/lib/vue/vue.min.js"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txc">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding: 0;
+            padding: 0;
+        }
+
+        .body-content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .container {
+            max-width: 100%;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggler").click(function () {
+                $("#bd-main-nav").toggle();
+            });
+        });
+    </script>
 </body>
 </html>
