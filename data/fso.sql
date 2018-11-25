@@ -24,36 +24,34 @@ CREATE TABLE `t_urlinfo` (
   `title` varchar(100) DEFAULT '',
   `url` varchar(200) DEFAULT '',
   `remark` varchar(500) DEFAULT '',
-  `createdate` date DEFAULT NULL,
-  `modifydate` date DEFAULT NULL,
+  `creator_id` bigint(20) DEFAULT NULL,
+  `creator` varchar(50) DEFAULT '',
+  `create_date` timestamp DEFAULT now(),
+  `modify_date` timestamp DEFAULT now(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+alter table `t_urlinfo` MODIFY COLUMN `create_date` DEFAULT CURRENT_TIMESTAMP;
+alter table `t_urlinfo` MODIFY COLUMN `modify_date` DEFAULT CURRENT_TIMESTAMP;
 
 -- ----------------------------
--- Records of t_urlinfo
+-- Table structure for t_videoinfo
 -- ----------------------------
-INSERT INTO `t_urlinfo` VALUES ('1', 'fsonline', 'https://www.fsonline.vip', '', '2018-11-20', '2018-11-20');
-INSERT INTO `t_urlinfo` VALUES ('2', '???', 'https://www.aliyun.com', '', '2018-11-20', '2018-11-20');
-INSERT INTO `t_urlinfo` VALUES ('3', '??', 'https://www.baidu.com', '', '2018-11-20', '2018-11-20');
-
--- ----------------------------
--- Table structure for t_userinfo
--- ----------------------------
-DROP TABLE IF EXISTS `t_userinfo`;
-CREATE TABLE `t_userinfo` (
+DROP TABLE IF EXISTS `t_videoinfo`;
+CREATE TABLE `t_videoinfo` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `account` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `sex` int(11) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `createdate` date DEFAULT NULL,
-  `modifydate` date DEFAULT NULL,
+  `title` varchar(100) DEFAULT '',
+  `author` varchar(50) DEFAULT '',
+  `remark` varchar(500) DEFAULT '',
+  `url` varchar(200) DEFAULT '',
+  `img_url` varchar(200) DEFAULT '',
+  `creator_id` bigint(20) DEFAULT NULL,
+  `creator` varchar(50) DEFAULT '',
+  `create_date` timestamp DEFAULT current_timestamp NULL,
+  `modify_date` timestamp DEFAULT current_timestamp NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_userinfo
--- ----------------------------
-INSERT INTO `t_userinfo` VALUES ('1', 'admin', '123456', '', null, null, null, null, null);
+
+alter table `t_videoinfo` MODIFY COLUMN `create_date` DEFAULT CURRENT_TIMESTAMP;
+alter table `t_videoinfo` MODIFY COLUMN `modify_date` DEFAULT CURRENT_TIMESTAMP;
