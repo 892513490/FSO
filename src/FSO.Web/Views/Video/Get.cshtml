@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Get";
+}
+
+@model FSO.Models.VideoInfo
+
+<div id="app">
+    <b-embed type="iframe"
+             aspect="16by9"
+             :src="url"
+             allowfullscreen></b-embed>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                url: "@Model.Url"
+            }
+        }
+    });
+</script>

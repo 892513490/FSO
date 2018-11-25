@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "视频列表";
+}
+
+<style>
+    .container-fluid .row {
+        margin-bottom:15px;
+    }
+</style>
+
+<div id="app">
+    <b-container  fluid  class = "p-4 bg-dark">
+        <b-row v-for="row in dataGrid">
+            <b-col v-for="item in row">
+                <a :href="'/Video/Get/' + item.id" target="_blank">
+                    <b-img thumbnail fluid src="/upload/images/1.jpeg" alt="缩略图" />
+                </a>
+                <a :href="'/Video/Get/' + item.id" target="_blank" style="color:#ffffff;">
+                    {{item.title}}<br/>
+                    作者：{{item.author}}
+                </a>
+            </b-col>
+        </b-row>
+    </b-container>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                dataGrid: [[
+                    { "id": "1", "title": "AngryBall", "author": "杨老师" },
+                    { "id": "2", "title": "StreetBattle", "author": "杨老师" },
+                    { "id": "3", "title": "AngryBall", "author": "杨老师" },
+                    { "id": "4", "title": "StreetBattle", "author": "杨老师" }
+                    ],
+                    [
+                        { "id": "5", "title": "AngryBall", "author": "杨老师" },
+                        { "id": "6", "title": "StreetBattle", "author": "杨老师" },
+                        { "id": "7", "title": "AngryBall", "author": "杨老师" },
+                        { "id": "8", "title": "StreetBattle", "author": "杨老师" }
+                    ]
+                ]
+            }
+        },
+        created() {
+
+        },
+        methods: {
+
+        }
+    });
+</script>
+
