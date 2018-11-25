@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FSO.Models;
+using FSO.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FSO.Web.Controllers
 {
     public class VideoController : Controller
     {
+        private readonly IVideoInfoService _service;
+
+        public VideoController(IVideoInfoService service)
+        {
+            _service = service;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            return View(_service.GetList());
         }
 
         public IActionResult Get(long id)
         {
-            return View(new VideoInfo() {
-                Id = id,
-                Author = "杨老师",
-                Remark = "杨老师。。。。。。。。。。。。。",
-                ImgUrl = "",
-                Url = id % 2 == 1 ? "/upload/video/AngryBall.mp4" : "/upload/video/StreetBattle.mp4"
-            });
+            return View(_service.Get(id));
         }
 
         public IActionResult Add()

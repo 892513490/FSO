@@ -3,6 +3,8 @@
     ViewData["Title"] = "视频列表";
 }
 
+@model IList<FSO.Models.VideoInfo>
+
 <style>
     .container-fluid .row {
         margin-bottom:15px;
@@ -15,17 +17,17 @@
 <div id="app">
     <b-container  fluid  class = "p-4 bg-dark">
         <b-row v-for="row in dataGrid">
-            <b-col v-for="item in row" v-if="item.null?false:true">
-                <a :href="'/Video/Get/' + item.id" target="_blank">
-                    <b-img thumbnail fluid src="/upload/images/1.jpeg" alt="缩略图" />
+            <b-col v-for="item in row" v-if="item.Null?false:true">
+                <a :href="'/Video/Get/' + item.Id" target="_blank">
+                    <b-img thumbnail fluid :src="item.ImgUrl" alt="缩略图" />
                 </a>
-                <a :href="'/Video/Get/' + item.id" target="_blank" style="color:#ffffff;">
-                    {{item.title}}<br />
-                    演员：{{item.author}}<br/>
-                    上传者：{{item.author}}
+                <a :href="'/Video/Get/' + item.Id" target="_blank" style="color:#ffffff;">
+                    {{item.Title}}<br />
+                    演员：{{item.Author}}<br/>
+                    上传者：{{item.Creator}}
                 </a>
             </b-col>
-            <b-col v-for="item in row" v-if="item.null?true:false"></b-col>
+            <b-col v-for="item in row" v-if="item.Null?true:false"></b-col>
         </b-row>
     </b-container>
 </div>
@@ -42,19 +44,7 @@
             
         },
         mounted() {
-            var list = [
-            { "id": "1", "title": "AngryBall", "author": "杨老师" },
-            { "id": "2", "title": "StreetBattle", "author": "杨老师" },
-            { "id": "3", "title": "AngryBall", "author": "杨老师" },
-            { "id": "4", "title": "AngryBall", "author": "杨老师" },
-            { "id": "5", "title": "AngryBall", "author": "杨老师" },
-            { "id": "6", "title": "StreetBattle", "author": "杨老师" },
-            { "id": "7", "title": "StreetBattle", "author": "杨老师" },
-            { "id": "8", "title": "StreetBattle", "author": "杨老师" },
-            { "id": "9", "title": "StreetBattle", "author": "杨老师" },
-            { "id": "10", "title": "StreetBattle", "author": "杨老师" }
-            ];
-
+            var list = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
             var tmpArr = [];
             var count = window.innerWidth >= window.innerHeight?4:3;
             for (var i = 0; i < list.length; i++) {
@@ -68,7 +58,7 @@
             if (tmpArr.length > 0) {
                 var tmpCount = count - tmpArr.length;
                 for (var i = 0; i < tmpCount; i++) {
-                    tmpArr.push({"null":true});
+                    tmpArr.push({"Null":true});
                 }
                 this.dataGrid.push(tmpArr);
             }

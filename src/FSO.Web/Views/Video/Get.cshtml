@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Get";
+    ViewData["Title"] = Model.Title;
 }
 
 @model FSO.Models.VideoInfo
@@ -8,17 +8,16 @@
 <div id="app">
     <b-embed type="iframe"
              aspect="16by9"
-             :src="url"
+             src="@Model.Url"
              allowfullscreen></b-embed>
+    <p style="margin-top:20px;text-indent:4rem;">@Model.Remark</p>
 </div>
 
 <script>
     new Vue({
         el: "#app",
         data() {
-            return {
-                url: "@Model.Url"
-            }
+            return {}
         }
     });
 </script>
