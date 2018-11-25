@@ -19,7 +19,7 @@
         <b-row v-for="row in dataGrid">
             <b-col v-for="item in row" v-if="item.Null?false:true">
                 <a :href="'/Video/Get/' + item.Id" target="_blank">
-                    <b-img thumbnail fluid :src="item.ImgUrl" alt="缩略图" />
+                    <b-img thumbnail fluid :src="item.ImgUrl" alt="图片加载失败" />
                 </a>
                 <a :href="'/Video/Get/' + item.Id" target="_blank" style="color:#ffffff;">
                     {{item.Title}}<br />
