@@ -3,38 +3,13 @@
 }
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        padding: 0;
-        padding: 0;
-    }
-
-    .body-content {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .container {
-        max-width:100%;
-    }
-
-    #app {
-        width: 100%;
-    }
-
-    marquee {
-        position:fixed;
-        color:#ffffff;
-    }
-
     ul {
         list-style: none;
         padding: 0;
     }
 
-    ul img{
-        width:100%;
+    .carousel-indicators {
+        display:none;
     }
 </style>
 
@@ -61,32 +36,29 @@
 </div>
 
 <script>
-    window.onload = function () {
-        new Vue({
-            el: "#app",
-            data() {
-                return {
-                    slide: 0,
-                    sliding: null,
-                    imgs: []
-                }
-            },
-            created() {
-                for (var i = 1; i < 42; i++) {
-                    this.imgs.push("/upload/images/" + i.toString() + ".jpeg");
-                }
-            },
-            methods: {
-                onSlideStart(slide) {
-                    this.sliding = true
-                },
-                onSlideEnd(slide) {
-                    this.sliding = false
-                }
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                slide: 0,
+                sliding: null,
+                imgs: []
             }
-        });
-    }
-
+        },
+        created() {
+            for (var i = 1; i < 42; i++) {
+                this.imgs.push("/upload/images/" + i.toString() + ".jpeg");
+            }
+        },
+        methods: {
+            onSlideStart(slide) {
+                this.sliding = true
+            },
+            onSlideEnd(slide) {
+                this.sliding = false
+            }
+        }
+    });
 </script>
 
 <!--<div class="row">
