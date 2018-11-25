@@ -60,11 +60,12 @@ namespace FSO.Api
 
             // Create the container builder.
             var builder = new ContainerBuilder();
-            builder.RegisterType<UrlRepository<UrlInfo>>().As<IUrlRepository<UrlInfo>>();
+            //Url
+            builder.RegisterType<UrlInfoRepository<UrlInfo>>().As<IUrlInfoRepository<UrlInfo>>();
             builder.RegisterType<UrlInfoService>().As<IUrlInfoService>();
-
-            //var assembly = System.Reflection.Assembly.GetEntryAssembly();
-            //builder.RegisterAssemblyTypes(assembly);
+            //Video
+            builder.RegisterType<VedioInfoRepository<VideoInfo>>().As<IVideoInfoRepository<VideoInfo>>();
+            builder.RegisterType<VideoInfoService>().As<IVideoInfoService>();
 
             builder.Populate(services);
             this.ApplicationContainer = builder.Build();

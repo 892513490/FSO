@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FSO.Api.Controllers
 {
     /// <summary>
-    /// 网址收藏
+    /// 网址专区
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]

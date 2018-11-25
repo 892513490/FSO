@@ -14,6 +14,7 @@ namespace FSO.Models
 
         public string Remark { get; set; }
 
+        [Column("img_url")]
         public string ImgUrl { get; set; }
 
         public string Url { get; set; }

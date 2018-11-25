@@ -9,9 +9,9 @@ namespace FSO.Service.Implements
 {
     public class UrlInfoService : IUrlInfoService
     {
-        private IUrlRepository<UrlInfo> _repository;
+        private IUrlInfoRepository<UrlInfo> _repository;
 
-        public UrlInfoService(IUrlRepository<UrlInfo> repository)
+        public UrlInfoService(IUrlInfoRepository<UrlInfo> repository)
         {
             _repository = repository;
         }
@@ -44,7 +44,7 @@ namespace FSO.Service.Implements
 
         public IList<UrlInfo> GetList()
         {
-            return _repository.GetList<UrlInfo>();
+            return _repository.GetList<UrlInfo>(predicate: item => item.Status.Equals((int)EnumStatus.Y));
         }
     }
 }

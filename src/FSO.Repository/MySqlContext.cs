@@ -11,6 +11,8 @@ namespace FSO.Repository
         
         public DbSet<UrlInfo> UrlInfos { get; set; }
 
+        public DbSet<VideoInfo> VideoInfos { get; set; }
+
         //重写OnConfiguring方法
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

@@ -19,5 +19,14 @@ namespace FSO.Models
 
         [Column("modify_date")]
         public DateTime? ModifyDate { get; set; }
+
+        public int Status { get; set; }
+
+        public BaseModel()
+        {
+            this.CreateDate = DateTime.Now;
+            this.ModifyDate = DateTime.Now;
+            this.Status = (int)EnumStatus.N;
+        }
     }
 }

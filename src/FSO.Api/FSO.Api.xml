@@ -6,7 +6,7 @@
     <members>
         <member name="T:FSO.Api.Controllers.UrlInfoController">
             <summary>
-            网址收藏
+            网址专区
             </summary>
         </member>
         <member name="M:FSO.Api.Controllers.UrlInfoController.List">
@@ -48,6 +48,52 @@
             更新收藏
             </summary>
             <param name="urlInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FSO.Api.Controllers.VideoInfoController">
+            <summary>
+            视频专区
+            </summary>
+        </member>
+        <member name="M:FSO.Api.Controllers.VideoInfoController.List">
+            <summary>
+            视频列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.VideoInfoController.Add(FSO.Models.VideoInfo)">
+            <summary>
+            添加视频
+            </summary>
+            <param name="videoInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.VideoInfoController.AddRange(System.Collections.Generic.IList{FSO.Models.VideoInfo})">
+            <summary>
+            批量视频
+            </summary>
+            <param name="videoInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.VideoInfoController.Delete(System.Int64)">
+            <summary>
+            删除视频
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.VideoInfoController.Get(System.Int64)">
+            <summary>
+            获取视频详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.VideoInfoController.Update(FSO.Models.VideoInfo)">
+            <summary>
+            更新视频
+            </summary>
+            <param name="videoInfo"></param>
             <returns></returns>
         </member>
     </members>

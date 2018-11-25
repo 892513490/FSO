@@ -28,6 +28,7 @@ CREATE TABLE `t_urlinfo` (
   `creator` varchar(50) DEFAULT '',
   `create_date` timestamp,
   `modify_date` timestamp,
+  `status` int(1) DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -47,8 +48,9 @@ CREATE TABLE `t_videoinfo` (
   `img_url` varchar(200) DEFAULT '',
   `creator_id` bigint(20) DEFAULT NULL,
   `creator` varchar(50) DEFAULT '',
-  `create_date` timestamp DEFAULT,
-  `modify_date` timestamp DEFAULT,
+  `create_date` timestamp NULL,
+  `modify_date` timestamp NULL,
+  `status` int(1) DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
