@@ -1,21 +1,18 @@
-﻿
+﻿@model IList<FSO.Models.VideoInfo>
+
 @{
     ViewData["Title"] = "视频列表";
 }
 
-@model IList<FSO.Models.VideoInfo>
-
 <style>
     .container-fluid .row {
-        margin-bottom:15px;
-        font-size:.5rem;
+        margin-bottom: 15px;
+        font-size: .5rem;
     }
-
-
 </style>
 
 <div id="app">
-    <b-container  fluid  class = "p-4 bg-dark">
+    <b-container fluid class="p-4 bg-dark">
         <b-row v-for="row in dataGrid">
             <b-col v-for="item in row" v-if="item.Null?false:true">
                 <a :href="'/Video/Get/' + item.Id" target="_blank">
@@ -23,7 +20,7 @@
                 </a>
                 <a :href="'/Video/Get/' + item.Id" target="_blank" style="color:#ffffff;">
                     {{item.Title}}<br />
-                    演员：{{item.Author}}<br/>
+                    演员：{{item.Author}}<br />
                     上传者：{{item.Creator}}
                 </a>
             </b-col>
@@ -41,7 +38,7 @@
             }
         },
         created() {
-            
+
         },
         mounted() {
             var list = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
