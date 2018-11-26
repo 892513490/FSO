@@ -24,7 +24,12 @@ namespace FSO.Web.Controllers
 
         public IActionResult Get(long id)
         {
-            return View(_service.Get(id));
+            var videoInfo = _service.Get(id);
+            if (videoInfo.IsLink)
+            {
+                return Redirect(videoInfo.Url);
+            }
+            return View(videoInfo);
         }
 
         public IActionResult Add()

@@ -18,5 +18,8 @@ namespace FSO.Models
         public string ImgUrl { get; set; }
 
         public string Url { get; set; }
+
+        [Column("is_link",TypeName = "bit")]
+        public bool IsLink { get; set; }
     }
 }
