@@ -54,9 +54,9 @@ namespace FSO.Web.Controllers
                 {
                     if (formFile.Length > 0)
                     {
-                        string fileExt = formFile.FileName.Substring(formFile.FileName.LastIndexOf(".")); //文件扩展名，不含“.”
+                        string fileExt = formFile.FileName.Substring(formFile.FileName.LastIndexOf(".")); //文件扩展名，含“.”
                         long fileSize = formFile.Length; //获得文件大小，以字节为单位
-                        string newFileName = Guid.NewGuid().ToString() + "." + fileExt; //随机生成新的文件名
+                        string newFileName = Guid.NewGuid().ToString() + fileExt; //随机生成新的文件名
                         var filePath = rootPath;
                         if (formFile.Name.Equals("fileImg"))
                         {
