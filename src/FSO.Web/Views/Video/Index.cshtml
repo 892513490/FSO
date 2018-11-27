@@ -20,8 +20,8 @@
                 </a>
                 <a :href="'/Video/Get/' + item.Id" target="_blank" style="color:#ffffff;">
                     {{item.Title}}<br />
-                    演员：{{item.Author}}<br />
-                    上传者：{{item.Creator}}
+                    上传者：{{item.Creator}}<br />
+                    上传时间：{{item.CreateDate.substr(0,10)}}
                 </a>
             </b-col>
             <b-col v-for="item in row" v-if="item.Null?true:false"></b-col>
