@@ -70,7 +70,7 @@
         </member>
         <member name="M:FSO.Api.Controllers.VideoInfoController.AddRange(System.Collections.Generic.IList{FSO.Models.VideoInfo})">
             <summary>
-            批量视频
+            批量添加视频
             </summary>
             <param name="videoInfos"></param>
             <returns></returns>
@@ -94,6 +94,14 @@
             更新视频
             </summary>
             <param name="videoInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSO.Api.Controllers.VideoInfoController.Approval(System.Int64,System.Int32)">
+            <summary>
+            审批视频
+            </summary>
+            <param name="id"></param>
+            <param name="status"></param>
             <returns></returns>
         </member>
     </members>
