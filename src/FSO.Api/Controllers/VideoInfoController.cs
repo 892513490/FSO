@@ -46,7 +46,7 @@ namespace FSO.Api.Controllers
         }
 
         /// <summary>
-        /// 批量视频
+        /// 批量添加视频
         /// </summary>
         /// <param name="videoInfos"></param>
         /// <returns></returns>
@@ -88,6 +88,21 @@ namespace FSO.Api.Controllers
         [HttpPost("Update")]
         public IActionResult Update(VideoInfo videoInfo)
         {
+            _service.Update(videoInfo);
+            return Ok();
+        }
+
+        /// <summary>
+        /// 审批视频
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Approval(long id,int status)
+        {
+            var videoInfo = _service.Get(id);
+            videoInfo.Status = status;
             _service.Update(videoInfo);
             return Ok();
         }

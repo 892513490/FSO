@@ -21,5 +21,10 @@ namespace FSO.Models
 
         [Column("is_link",TypeName = "bit")]
         public bool IsLink { get; set; }
+
+        public VideoInfo()
+        {
+            this.IsLink = true;
+        }
     }
 }
