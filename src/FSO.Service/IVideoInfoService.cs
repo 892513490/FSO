@@ -20,6 +20,6 @@ namespace FSO.Service
 
         VideoInfo Get(long id);
 
-        IList<VideoInfo> GetList();
+        IList<VideoInfo> GetList(Expression<Func<VideoInfo, bool>> predicate = null);
     }
 }

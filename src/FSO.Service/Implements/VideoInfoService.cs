@@ -42,9 +42,9 @@ namespace FSO.Service.Implements
             return _repository.FirstOrDefault(item=>item.Id.Equals(id));
         }
 
-        public IList<VideoInfo> GetList()
+        public IList<VideoInfo> GetList(Expression<Func<VideoInfo, bool>> predicate = null)
         {
-            return _repository.GetList<VideoInfo>(predicate: item => item.Status.Equals((int)EnumStatus.Y));
+            return _repository.GetList<VideoInfo>(predicate:predicate);
         }
     }
 }

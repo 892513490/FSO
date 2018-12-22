@@ -24,7 +24,7 @@ namespace FSO.Web.Controllers
 
         public IActionResult Index()
         {
-            return View(_service.GetList());
+            return View(_service.GetList(predicate: item => item.Status.Equals((int)EnumStatus.Y)));
         }
 
         public IActionResult Get(long id)
