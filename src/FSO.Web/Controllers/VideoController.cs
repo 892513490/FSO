@@ -76,11 +76,11 @@ namespace FSO.Web.Controllers
                         }
 
                         //苹果手机格式转换（mov -> mp4）
-                        if (filePath.ToUpper().EndsWith("mov"))
+                        if (filePath.ToLower().EndsWith(".mov"))
                         {
                             string tmpPath = filePath.ToLower().Replace(".mov", ".mp4");
-                            this.MovToMp4(filePath, tmpPath);
-                            filePath = tmpPath;
+                            await this.MovToMp4(filePath, tmpPath);
+                            videoInfo.Url = tmpPath;
                         }
                     }
                 }
@@ -90,7 +90,7 @@ namespace FSO.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        private void MovToMp4(string movPath, string mp4Path)
+        private async Task MovToMp4(string movPath, string mp4Path)
         {
             //创建一个ProcessStartInfo对象 使用系统shell 指定命令和参数 设置标准输出
             var psi = new ProcessStartInfo("ffmpeg", $"-i {movPath} {mp4Path}") { RedirectStandardOutput = true };
