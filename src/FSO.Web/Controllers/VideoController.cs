@@ -55,7 +55,7 @@ namespace FSO.Web.Controllers
                 {
                     if (formFile.Length > 0)
                     {
-                        string fileExt = formFile.FileName.Substring(formFile.FileName.LastIndexOf(".")); //文件扩展名，含“.”
+                        string fileExt = formFile.FileName.Substring(formFile.FileName.LastIndexOf(".")).ToLower(); //文件扩展名，含“.”
                         long fileSize = formFile.Length; //获得文件大小，以字节为单位
                         string newFileName = Guid.NewGuid().ToString() + fileExt; //随机生成新的文件名
                         var filePath = rootPath;
@@ -76,11 +76,11 @@ namespace FSO.Web.Controllers
                         }
 
                         //苹果手机格式转换（mov -> mp4）
-                        if (filePath.ToLower().EndsWith(".mov"))
+                        if (filePath.EndsWith(".mov"))
                         {
-                            string tmpPath = filePath.ToLower().Replace(".mov", ".mp4");
+                            string tmpPath = filePath.Replace(".mov", ".mp4");
                             await this.MovToMp4(filePath, tmpPath);
-                            videoInfo.Url = videoInfo.Url.ToLower().Replace(".mov", ".mp4");
+                            videoInfo.Url = videoInfo.Url.Replace(".mov", ".mp4");
                         }
                     }
                 }
