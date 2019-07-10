@@ -93,7 +93,7 @@ namespace FSO.Web.Controllers
         private async Task MovToMp4(string movPath, string mp4Path)
         {
             //创建一个ProcessStartInfo对象 使用系统shell 指定命令和参数 设置标准输出
-            var psi = new ProcessStartInfo("ffmpeg", $"-i {movPath} {mp4Path}") { RedirectStandardOutput = true };
+            var psi = new ProcessStartInfo("ffmpeg", $"-i {movPath} -vcodec copy -acodec copy {mp4Path}") { RedirectStandardOutput = true };
             //启动
             var proc = Process.Start(psi);
             if (proc == null)
