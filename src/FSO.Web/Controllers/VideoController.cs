@@ -80,7 +80,7 @@ namespace FSO.Web.Controllers
                         {
                             string tmpPath = filePath.ToLower().Replace(".mov", ".mp4");
                             await this.MovToMp4(filePath, tmpPath);
-                            videoInfo.Url = tmpPath;
+                            videoInfo.Url = videoInfo.Url.ToLower().Replace(".mov", ".mp4");
                         }
                     }
                 }
