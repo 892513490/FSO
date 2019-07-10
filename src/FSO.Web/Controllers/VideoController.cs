@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -73,12 +74,48 @@ namespace FSO.Web.Controllers
                         {
                             await formFile.CopyToAsync(stream);
                         }
+
+                        //苹果手机格式转换（mov -> mp4）
+                        if (filePath.ToUpper().EndsWith("mov"))
+                        {
+                            string tmpPath = filePath.ToLower().Replace(".mov", ".mp4");
+                            this.MovToMp4(filePath, tmpPath);
+                            filePath = tmpPath;
+                        }
                     }
                 }
             }
             
             _service.Add(videoInfo);
             return RedirectToAction("Index");
+        }
+
+        private void MovToMp4(string movPath, string mp4Path)
+        {
+            //创建一个ProcessStartInfo对象 使用系统shell 指定命令和参数 设置标准输出
+            var psi = new ProcessStartInfo("ffmpeg", $"-i {movPath} {mp4Path}") { RedirectStandardOutput = true };
+            //启动
+            var proc = Process.Start(psi);
+            if (proc == null)
+            {
+                throw new Exception("ffmpeg can not found");
+            }
+            else
+            {
+                //开始读取
+                using (var sr = proc.StandardOutput)
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        Console.WriteLine(sr.ReadLine());
+                    }
+
+                    if (!proc.HasExited)
+                    {
+                        proc.Kill();
+                    }
+                }
+            }
         }
     }
 }
