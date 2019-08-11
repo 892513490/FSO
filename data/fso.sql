@@ -51,6 +51,7 @@ CREATE TABLE `t_videoinfo` (
   `create_date` timestamp NULL,
   `modify_date` timestamp NULL,
   `status` int(1) DEFAULT 1,
+  `is_link` int(1) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
