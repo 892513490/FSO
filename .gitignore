@@ -2,5 +2,15 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/src/FSO.Web/obj
-/src/FSO.Web/bin/Debug/netcoreapp2.1
+/src/.vs
+/src/FSO.Android
+/src/FSO.Api/bin
+/src/FSO.Api/obj
+/src/FSO.Models/bin
+/src/FSO.Models/obj
+/src/FSO.Repository/bin
+/src/FSO.Repository/obj
+/src/FSO.Service/bin
+/src/FSO.Service/obj
+/src/FSO.Web/bin
+/src/FSO.Web/objs
