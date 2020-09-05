@@ -14,3 +14,4 @@
 /src/FSO.Service/obj
 /src/FSO.Web/bin
 /src/FSO.Web/obj
+src/.vscode/launch.json
