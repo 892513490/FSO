@@ -53,12 +53,12 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
-    <AndroidLinkTool>proguard</AndroidLinkTool>
     <AndroidKeyStore>true</AndroidKeyStore>
     <AndroidSigningKeyStore>F:\git\FSO\src\FSO.App\FSO.App.Android\keystore\fso.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>187032</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>fso</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>187032</AndroidSigningKeyPass>
+    <AndroidLinkTool>r8</AndroidLinkTool>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
